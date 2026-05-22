@@ -954,12 +954,6 @@
         <div class="conf-step-text">We connect for a 30-minute call to walk through findings and discuss a tailored quote.</div>
       </div>
     </div>
-    <div style="margin-bottom:28px;">
-      <button onclick="openReport()" style="font-family:'Barlow',sans-serif; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:16px 36px; border-radius:5px; background:linear-gradient(135deg,var(--gsd-yellow),#c98900); color:var(--navy); border:none; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 8px 28px rgba(245,168,0,0.4)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
-        ⚡ View Internal Diagnostic Report
-      </button>
-      <p style="font-size:12px; color:var(--muted); margin-top:10px;">GSD team use only · AI-generated summary, opportunities &amp; benchmarks</p>
-    </div>
     <p class="conf-note">Questions? Email us at <a href="mailto:info@gsdsol.com">info@gsdsol.com</a> · <a href="https://www.gsdsol.com" target="_blank">www.gsdsol.com</a></p>
   </div>
 
@@ -1465,57 +1459,54 @@ Produce using EXACTLY this HTML (no markdown, no backticks):
     }
   }
 
+  async function postToFlow(url, payload) {
+    // Use no-cors mode to avoid CORS preflight issues with Power Automate
+    try {
+      await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      console.log('Payload sent to: ' + url.substring(0, 60) + '...');
+    } catch (err) {
+      console.error('Flow dispatch failed:', err.message);
+    }
+  }
+
   async function sendToPowerAutomate(data, internalHtml, clientHtml, companyIntel) {
     if (!POWER_AUTOMATE_URL || POWER_AUTOMATE_URL === 'YOUR_POWER_AUTOMATE_HTTP_TRIGGER_URL_HERE') {
-      console.warn('Power Automate URL not configured. Set POWER_AUTOMATE_URL at the top of the script.');
+      console.warn('Power Automate URL not configured.');
     } else {
-      try {
-        await fetch(POWER_AUTOMATE_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            submittedAt: data.submittedAt,
-            contact: data.contact,
-            painPoints: data.painPoints,
-            functionalAreas: data.functionalAreas,
-            urgencyGoals: data.urgencyGoals,
-            finalDetails: data.finalDetails,
-            companyIntel: companyIntel,
-            internalReportHtml: internalHtml,
-            clientReportHtml: clientHtml
-          })
-        });
-        console.log('Both reports sent to Power Automate successfully.');
-      } catch (err) {
-        console.error('Power Automate internal dispatch failed:', err.message);
-      }
+      await postToFlow(POWER_AUTOMATE_URL, {
+        submittedAt: data.submittedAt,
+        contact: data.contact,
+        painPoints: data.painPoints,
+        functionalAreas: data.functionalAreas,
+        urgencyGoals: data.urgencyGoals,
+        finalDetails: data.finalDetails,
+        companyIntel: companyIntel,
+        internalReportHtml: internalHtml,
+        clientReportHtml: clientHtml
+      });
     }
 
     // ── Send prospect confirmation email via separate flow ────────────────────
     if (!POWER_AUTOMATE_CONFIRMATION_URL || POWER_AUTOMATE_CONFIRMATION_URL === 'YOUR_POWER_AUTOMATE_CONFIRMATION_URL_HERE') {
-      console.warn('Confirmation email URL not configured. Set POWER_AUTOMATE_CONFIRMATION_URL at the top of the script.');
+      console.warn('Confirmation email URL not configured.');
       return;
     }
-    try {
-      await fetch(POWER_AUTOMATE_CONFIRMATION_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          toEmail: data.contact.email,
-          firstName: data.contact.firstName,
-          lastName: data.contact.lastName,
-          company: data.contact.company,
-          title: data.contact.title,
-          submittedAt: data.submittedAt,
-          painPointsSummary: data.painPoints.selected.join(', ') || 'Not specified',
-          urgency: data.urgencyGoals.urgency || 'Not specified',
-          preferredContact: data.finalDetails.preferredContact || 'Email'
-        })
-      });
-      console.log('Confirmation email payload sent successfully.');
-    } catch (err) {
-      console.error('Confirmation email dispatch failed:', err.message);
-    }
+    await postToFlow(POWER_AUTOMATE_CONFIRMATION_URL, {
+      toEmail: data.contact.email,
+      firstName: data.contact.firstName,
+      lastName: data.contact.lastName,
+      company: data.contact.company,
+      title: data.contact.title,
+      submittedAt: data.submittedAt,
+      painPointsSummary: data.painPoints.selected.join(', ') || 'Not specified',
+      urgency: data.urgencyGoals.urgency || 'Not specified',
+      preferredContact: data.finalDetails.preferredContact || 'Email'
+    });
   }
 
   // Init
