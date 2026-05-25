@@ -395,7 +395,7 @@
   <!-- ===== SECTION 1: CONTACT ===== -->
   <div class="section active" id="section-1">
     <div class="section-header blue">
-      <div class="section-num">Section 01 / 05</div>
+      <div class="section-num">Section 01 / 06</div>
       <div class="section-title"><span class="blue">Your</span> Business</div>
       <div class="section-desc">Tell us a little about yourself and your organization.</div>
     </div>
@@ -509,7 +509,7 @@
   <!-- ===== SECTION 2: PAIN POINTS ===== -->
   <div class="section" id="section-2">
     <div class="section-header yellow">
-      <div class="section-num">Section 02 / 05</div>
+      <div class="section-num">Section 02 / 06</div>
       <div class="section-title"><span class="yellow">Pain</span> Points</div>
       <div class="section-desc">Select every challenge that applies to your organization today.</div>
     </div>
@@ -595,7 +595,7 @@
   <!-- ===== SECTION 3: FUNCTIONAL AREAS ===== -->
   <div class="section" id="section-3">
     <div class="section-header red">
-      <div class="section-num">Section 03 / 05</div>
+      <div class="section-num">Section 03 / 06</div>
       <div class="section-title"><span class="red">Functional</span> Areas</div>
       <div class="section-desc">Which functions are most impacted? Rate the severity of issues in each area.</div>
     </div>
@@ -729,10 +729,196 @@
     </div>
   </div>
 
-  <!-- ===== SECTION 4: URGENCY & GOALS ===== -->
+
+  <!-- ===== SECTION 4: BENCHMARKING DATA ===== -->
   <div class="section" id="section-4">
+    <div class="section-header blue">
+      <div class="section-num">Section 04 / 06</div>
+      <div class="section-title"><span class="blue">Benchmarking</span> Data</div>
+      <div class="section-desc">These details allow us to generate specific benefit estimates and ROI ranges for your situation.</div>
+    </div>
+
+    <div class="field-group">
+      <label>Current ERP / Core Financial System</label>
+      <select id="erp">
+        <option value="">— Select —</option>
+        <option>SAP S/4HANA</option>
+        <option>SAP ECC</option>
+        <option>Oracle ERP Cloud</option>
+        <option>Oracle NetSuite</option>
+        <option>Microsoft Dynamics 365</option>
+        <option>Workday</option>
+        <option>Sage Intacct</option>
+        <option>QuickBooks / QuickBooks Enterprise</option>
+        <option>Epicor</option>
+        <option>Infor</option>
+        <option>No formal ERP / Spreadsheet-based</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label>Current Month-End Close (Business Days)</label>
+        <select id="close-days">
+          <option value="">— Select —</option>
+          <option>1–3 days (best in class)</option>
+          <option>4–6 days</option>
+          <option>7–10 days</option>
+          <option>11–15 days</option>
+          <option>More than 15 days</option>
+          <option>Not applicable</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>Approximate Monthly Invoice / Transaction Volume</label>
+        <select id="invoice-vol">
+          <option value="">— Select —</option>
+          <option>Under 500</option>
+          <option>500 – 2,000</option>
+          <option>2,000 – 10,000</option>
+          <option>10,000 – 50,000</option>
+          <option>Over 50,000</option>
+          <option>Not applicable</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Headcount in Back-Office Functions Today (Finance, Ops, HR, IT, Supply Chain combined)</label>
+      <div class="radio-grid" id="backoffice-hc-grid">
+        <label class="radio-card" onclick="selectRadio(this,'backoffice-hc-grid')">
+          <input type="radio" name="backofficeHc" value="1–5 FTEs">
+          <div class="radio-dot"></div>
+          <span class="radio-label">1–5 FTEs</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'backoffice-hc-grid')">
+          <input type="radio" name="backofficeHc" value="6–15 FTEs">
+          <div class="radio-dot"></div>
+          <span class="radio-label">6–15 FTEs</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'backoffice-hc-grid')">
+          <input type="radio" name="backofficeHc" value="16–30 FTEs">
+          <div class="radio-dot"></div>
+          <span class="radio-label">16–30 FTEs</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'backoffice-hc-grid')">
+          <input type="radio" name="backofficeHc" value="31–75 FTEs">
+          <div class="radio-dot"></div>
+          <span class="radio-label">31–75 FTEs</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'backoffice-hc-grid')">
+          <input type="radio" name="backofficeHc" value="75+ FTEs">
+          <div class="radio-dot"></div>
+          <span class="radio-label">75+ FTEs</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Estimated Fully-Loaded Cost Per Back-Office FTE (Annual, USD)</label>
+      <div class="radio-grid" id="fte-cost-grid">
+        <label class="radio-card" onclick="selectRadio(this,'fte-cost-grid')">
+          <input type="radio" name="fteCost" value="Under $60K">
+          <div class="radio-dot"></div>
+          <span class="radio-label">Under $60K</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'fte-cost-grid')">
+          <input type="radio" name="fteCost" value="$60K – $90K">
+          <div class="radio-dot"></div>
+          <span class="radio-label">$60K – $90K</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'fte-cost-grid')">
+          <input type="radio" name="fteCost" value="$90K – $130K">
+          <div class="radio-dot"></div>
+          <span class="radio-label">$90K – $130K</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'fte-cost-grid')">
+          <input type="radio" name="fteCost" value="Over $130K">
+          <div class="radio-dot"></div>
+          <span class="radio-label">Over $130K</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'fte-cost-grid')">
+          <input type="radio" name="fteCost" value="Not sure">
+          <div class="radio-dot"></div>
+          <span class="radio-label">Not sure</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label>Estimated Annual Cost of Current Operational Problems (Lost Productivity, Errors, Rework)</label>
+        <select id="problem-cost">
+          <option value="">— Select —</option>
+          <option>Under $250K</option>
+          <option>$250K – $500K</option>
+          <option>$500K – $1M</option>
+          <option>$1M – $5M</option>
+          <option>Over $5M</option>
+          <option>Not quantified</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>Finance / Back-Office Cost as % of Revenue (if known)</label>
+        <select id="finance-pct">
+          <option value="">— Select —</option>
+          <option>Under 1%</option>
+          <option>1% – 2%</option>
+          <option>2% – 4%</option>
+          <option>4% – 7%</option>
+          <option>Over 7%</option>
+          <option>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Have you attempted to fix these issues before? What happened?</label>
+      <div class="radio-grid" id="prev-fix-grid">
+        <label class="radio-card" onclick="selectRadio(this,'prev-fix-grid')">
+          <input type="radio" name="prevFix" value="No — first time addressing this">
+          <div class="radio-dot"></div>
+          <span class="radio-label">No — first attempt</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'prev-fix-grid')">
+          <input type="radio" name="prevFix" value="Yes — hired internally but it didn't stick">
+          <div class="radio-dot"></div>
+          <span class="radio-label">Hired internally — didn't stick</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'prev-fix-grid')">
+          <input type="radio" name="prevFix" value="Yes — used a consultant but results were poor">
+          <div class="radio-dot"></div>
+          <span class="radio-label">Used a consultant — poor results</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'prev-fix-grid')">
+          <input type="radio" name="prevFix" value="Yes — implemented new software but problems remain">
+          <div class="radio-dot"></div>
+          <span class="radio-label">New software — problems remain</span>
+        </label>
+        <label class="radio-card" onclick="selectRadio(this,'prev-fix-grid')">
+          <input type="radio" name="prevFix" value="Yes — multiple attempts, nothing has worked">
+          <div class="radio-dot"></div>
+          <span class="radio-label">Multiple attempts — nothing worked</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>What does success look like in 12 months? Be specific.</label>
+      <textarea id="success-vision" placeholder="e.g., Month-end close in 5 days, 20% reduction in back-office costs, reliable reporting by the 3rd business day..."></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" onclick="prevSection(4)">← Back</button>
+      <button class="btn btn-primary" onclick="nextSection(4)">Next: Urgency & Goals →</button>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: URGENCY & GOALS ===== -->
+  <div class="section" id="section-5">
     <div class="section-header green">
-      <div class="section-num">Section 04 / 05</div>
+      <div class="section-num">Section 05 / 06</div>
       <div class="section-title"><span class="green">Urgency</span> & Goals</div>
       <div class="section-desc">Help us understand your timeline and expected outcomes.</div>
     </div>
@@ -847,15 +1033,15 @@
     </div>
 
     <div class="btn-row">
-      <button class="btn btn-secondary" onclick="prevSection(4)">← Back</button>
-      <button class="btn btn-primary" onclick="nextSection(4)">Next: Final Details →</button>
+      <button class="btn btn-secondary" onclick="prevSection(5)">← Back</button>
+      <button class="btn btn-primary" onclick="nextSection(5)">Next: Final Details →</button>
     </div>
   </div>
 
   <!-- ===== SECTION 5: FINAL ===== -->
-  <div class="section" id="section-5">
+  <div class="section" id="section-6">
     <div class="section-header blue">
-      <div class="section-num">Section 05 / 05</div>
+      <div class="section-num">Section 06 / 06</div>
       <div class="section-title"><span class="blue">Final</span> Details</div>
       <div class="section-desc">Last few questions to help us tailor your diagnostic report.</div>
     </div>
@@ -926,7 +1112,7 @@
     </div>
 
     <div class="btn-row">
-      <button class="btn btn-secondary" onclick="prevSection(5)">← Back</button>
+      <button class="btn btn-secondary" onclick="prevSection(6)">← Back</button>
       <button class="btn btn-submit" onclick="submitForm()">Submit My Free Diagnostic →</button>
     </div>
   </div>
@@ -1078,14 +1264,14 @@
 
 <script>
   let currentSection = 1;
-  const totalSections = 5;
+  const totalSections = 6;
   const scales = {};
 
   function updateProgress(s) {
     const pct = Math.round(((s - 1) / totalSections) * 100);
     document.getElementById('prog-fill').style.width = pct + '%';
     document.getElementById('progress-pct').textContent = pct + '%';
-    const labels = ['Your Business','Pain Points','Functional Areas','Urgency & Goals','Final Details'];
+    const labels = ['Your Business','Pain Points','Functional Areas','Benchmarking Data','Urgency & Goals','Final Details'];
     document.getElementById('progress-text').textContent = `Step ${s} of ${totalSections} — ${labels[s-1]}`;
   }
 
@@ -1183,6 +1369,17 @@
         },
         openToCosource: getChecked('cosource-grid'),
       },
+      benchmarking: {
+        erp: document.getElementById('erp').value,
+        closeDays: document.getElementById('close-days').value,
+        invoiceVolume: document.getElementById('invoice-vol').value,
+        backofficeHeadcount: getRadio('backofficeHc'),
+        fteCost: getRadio('fteCost'),
+        problemCost: document.getElementById('problem-cost').value,
+        financeAsPercentRevenue: document.getElementById('finance-pct').value,
+        previousFixAttempts: getRadio('prevFix'),
+        successVision: document.getElementById('success-vision').value,
+      },
       urgencyGoals: {
         urgency: getRadio('urgency'),
         outcomes: getChecked('outcome-grid'),
@@ -1202,8 +1399,9 @@
   // ── POWER AUTOMATE WEBHOOK URLS ─────────────────────────────────────────────
   // Paste your Power Automate HTTP trigger URLs here after setting up the flows.
   // See the SETUP GUIDE delivered with this file for step-by-step instructions.
-  const POWER_AUTOMATE_URL = 'https://default1f283b9c581e4fe4b18452a37214d5.1e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f8289022220047b6b8b100369441be9d/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=G0bNJtOCbiZMzOSZ10Xu49t26CgQw0eR5U5OE7rWpWI';          // Flow 1: Internal team report
-  const POWER_AUTOMATE_CONFIRMATION_URL = 'https://default1f283b9c581e4fe4b18452a37214d5.1e.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/6df81063e21444f7873ec1211a20ab0e/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Hx9ZP9-9D51g_WvbBJfQh8zI5eorq1UO-jdtWDqEMJc'; // Flow 2: Prospect confirmation email
+  // ── CLOUDFLARE WORKER PROXY URL ─────────────────────────────────────────────
+  // Replace this with your Worker URL from Cloudflare after setup
+  const WORKER_URL = 'https://gsd-proxy.tjrock-d23.workers.dev';
 
   function submitForm() {
     const data = collectData();
@@ -1252,7 +1450,7 @@
 
   async function researchCompany(companyName, domain, industry) {
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch(WORKER_URL + '/anthropic', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1285,14 +1483,26 @@
     document.getElementById('tab-client').style.border = isInternal ? '1px solid var(--border)' : 'none';
   }
 
-  async function generateInternalReport(data) {
-    let msgIdx = 0;
-    const msgEl = document.getElementById('loading-msg');
-    const msgInterval = setInterval(() => {
-      msgIdx = (msgIdx + 1) % loadingMessages.length;
-      msgEl.textContent = loadingMessages[msgIdx];
-    }, 2000);
+  // ── POWER AUTOMATE WEBHOOK URLS ─────────────────────────────────────────────
+  // Power Automate handles ALL AI generation and email sending server-side
+  // Power Automate calls now route through Cloudflare Worker to avoid CORS
+  // WORKER_URL already defined above
 
+  function getEmailDomain(email) {
+    const parts = email.split('@');
+    return parts.length === 2 ? parts[1] : null;
+  }
+
+  async function generateInternalReport(data) {
+    // Show loading state in modal
+    document.getElementById('report-loading').style.display = 'block';
+    document.getElementById('report-internal').style.display = 'none';
+    document.getElementById('report-client').style.display = 'none';
+
+    const domain = getEmailDomain(data.contact.email);
+
+    // Build a plain-text summary to show in the modal
+    // Full AI generation now happens inside Power Automate
     const scoreMap = {
       finance: data.functionalAreas.severityScores.finance,
       operations: data.functionalAreas.severityScores.operations,
@@ -1301,213 +1511,114 @@
       supplyChain: data.functionalAreas.severityScores.supplyChain
     };
 
-    const domain = getEmailDomain(data.contact.email);
-    const companyIntel = await researchCompany(data.contact.company, domain, data.contact.industry);
+    const topScores = Object.entries(scoreMap)
+      .filter(([,v]) => v > 0)
+      .sort((a,b) => b[1]-a[1])
+      .map(([k,v]) => `<div class="stat-card"><div class="stat-num">${v}/5</div><div class="stat-label">${k}</div></div>`)
+      .join('');
 
-    // ── Generate both reports in parallel ─────────────────────────────────────
-    const internalPrompt = `You are a senior consultant at GSD Solutions, a US-based consulting and co-sourcing firm. Produce a sharp INTERNAL sales briefing for the GSD team based on a prospect diagnostic submission.
+    // Show submission summary in modal immediately
+    const summaryHtml = `
+      <div style="background:rgba(46,123,196,0.1);border:1px solid rgba(46,123,196,0.3);border-radius:6px;padding:12px 16px;margin-bottom:20px;font-size:12px;color:var(--muted);">
+        <strong style="color:var(--gsd-blue);">✓ Submitted</strong> &nbsp;·&nbsp; ${data.contact.company} (${domain}) &nbsp;·&nbsp; ${new Date().toLocaleString()}
+        <br><strong style="color:var(--gsd-yellow);">⚡ Full AI diagnostic report is being generated and will arrive in your inbox shortly.</strong>
+      </div>
+      <h2>Submission Received</h2>
+      <div class="profile-grid">
+        <div class="profile-item"><strong>Name</strong>${data.contact.firstName} ${data.contact.lastName}</div>
+        <div class="profile-item"><strong>Title</strong>${data.contact.title}</div>
+        <div class="profile-item"><strong>Company</strong>${data.contact.company}</div>
+        <div class="profile-item"><strong>Email</strong>${data.contact.email}</div>
+        <div class="profile-item"><strong>Industry</strong>${data.contact.industry || 'Not specified'}</div>
+        <div class="profile-item"><strong>Revenue</strong>${data.contact.revenue || 'Not specified'}</div>
+        <div class="profile-item"><strong>Employees</strong>${data.contact.companySize || 'Not specified'}</div>
+        <div class="profile-item"><strong>Operations</strong>${data.contact.operations || 'Not specified'}</div>
+        <div class="profile-item"><strong>Urgency</strong>${data.urgencyGoals.urgency || 'Not specified'}</div>
+        <div class="profile-item"><strong>Budget</strong>${data.urgencyGoals.budget || 'Not specified'}</div>
+        <div class="profile-item"><strong>Preferred Contact</strong>${data.finalDetails.preferredContact || 'Not specified'}</div>
+        <div class="profile-item"><strong>Referral</strong>${data.finalDetails.referral || 'Not specified'}</div>
+      </div>
+      <h2>Top Issue</h2>
+      <p>${data.painPoints.topIssue || 'Not provided'}</p>
+      <h2>Pain Points Selected</h2>
+      <ul>${(data.painPoints.selected || []).map(p => `<li>${p}</li>`).join('')}</ul>
+      <h2>Severity Scores</h2>
+      <div class="stat-grid">${topScores}</div>
+      <h2>Open to Co-Sourcing</h2>
+      <ul>${(data.functionalAreas.openToCosource || []).map(f => `<li>${f}</li>`).join('') || '<li>Not specified</li>'}</ul>
+      <h2>Desired Outcomes</h2>
+      <ul>${(data.urgencyGoals.outcomes || []).map(o => `<li>${o}</li>`).join('') || '<li>Not specified</li>'}</ul>
+      <h2>Additional Notes</h2>
+      <p>${data.finalDetails.extraNotes || 'None'}</p>
+    `;
 
-PROSPECT SUBMISSION:
-- Name: ${data.contact.firstName} ${data.contact.lastName}, ${data.contact.title} at ${data.contact.company}
-- Email: ${data.contact.email} | Phone: ${data.contact.phone || 'Not provided'}
-- Industry: ${data.contact.industry || 'Not specified'} | Employees: ${data.contact.companySize || 'Not specified'} | Revenue: ${data.contact.revenue || 'Not specified'} | Operations: ${data.contact.operations || 'Not specified'}
-- Pain points: ${data.painPoints.selected.join('; ') || 'None selected'}
-- Top stated issue: "${data.painPoints.topIssue || 'Not provided'}"
-- Severity scores (1–5): Finance=${scoreMap.finance}, Back-Office Ops=${scoreMap.operations}, HR=${scoreMap.hr}, IT=${scoreMap.it}, Supply Chain=${scoreMap.supplyChain}
-- Open to co-sourcing: ${data.functionalAreas.openToCosource.join(', ') || 'None specified'}
-- Urgency: ${data.urgencyGoals.urgency || 'Not specified'}
-- Desired outcomes: ${data.urgencyGoals.outcomes.join('; ') || 'None'}
-- Budget: ${data.urgencyGoals.budget || 'Not specified'}
-- FTEs for co-sourcing: ${data.urgencyGoals.ftesForCosource}
-- Prior consulting experience: ${data.finalDetails.priorConsultingExp || 'Not specified'}
-- Referral: ${data.finalDetails.referral || 'Not specified'}
-- Preferred contact: ${data.finalDetails.preferredContact || 'Not specified'}
-- Notes: "${data.finalDetails.extraNotes || 'None'}"
-- Submitted: ${new Date(data.submittedAt).toLocaleString()}
+    const clientSummaryHtml = `
+      <div style="background:rgba(46,123,196,0.1);border:1px solid rgba(46,123,196,0.3);border-radius:6px;padding:12px 16px;margin-bottom:20px;font-size:12px;color:var(--muted);">
+        <strong style="color:var(--gsd-blue);">📄 Client Report</strong> &nbsp;·&nbsp; For ${data.contact.firstName} ${data.contact.lastName} at ${data.contact.company}
+        <br><strong style="color:var(--gsd-yellow);">⚡ Full personalized client report is being generated and will be emailed to the prospect shortly.</strong>
+      </div>
+      <h2>Your Diagnostic Summary</h2>
+      <p>Thank you ${data.contact.firstName} — we have received your diagnostic submission for ${data.contact.company}. 
+      Our team is reviewing your responses and preparing your personalized report. 
+      You will hear from us shortly via your preferred contact method (${data.finalDetails.preferredContact || 'email'}).</p>
+      <h2>What You Told Us</h2>
+      <ul>${(data.painPoints.selected || []).map(p => `<li>${p}</li>`).join('')}</ul>
+      <h2>Your Primary Goal</h2>
+      <p>${data.painPoints.topIssue || 'Not provided'}</p>
+    `;
 
-COMPANY INTELLIGENCE (from public sources — ${data.contact.company}, domain: ${domain}):
-${companyIntel}
+    // Hide loading, show both tabs with submission summary
+    document.getElementById('report-loading').style.display = 'none';
+    document.getElementById('report-internal').innerHTML = summaryHtml;
+    document.getElementById('report-client').innerHTML = clientSummaryHtml;
+    switchTab('internal');
 
-GSD SOLUTIONS OFFERINGS:
-Consulting: Assessments + 90-day roadmaps, Lean/Six Sigma process optimization, PMO leadership, Shared Services & Operating Model design, Strategic Sourcing, Org Transformation & Change Management, Finance Transformation, Month-End Close Reduction, M&A Integration Support, Cost Accounting Implementation, RFP & Tool Selection.
-Co-Sourcing: Dedicated offshore specialists (Eastern Europe & SE Asia) embedded in client workflows. ~30% cost savings vs domestic. No minimum headcount. Roles: Accounting, AP/AR/Billing/Collections, FP&A, Controllership, Cost Accounting, HR & Payroll, IT Helpdesk/Dev/Admin, PMO & Analytics, Supply Chain/Sourcing. Proven transition: assess → document → shadow → cutover → hypercare.
-
-Weave company intelligence throughout — reference their tech stack, recent news, growth signals where relevant.
-
-Produce using EXACTLY this HTML (no markdown, no backticks):
-
-<h2>Client Profile Snapshot</h2>
-<div class="profile-grid">[8-10 items: <div class="profile-item"><strong>Label</strong>Value</div> — include intel-derived rows]</div>
-
-<h2>Company Intelligence</h2>
-<p>[2-3 sentences: products/services, size, tech stack, recent news, growth signals. Note if limited.]</p>
-
-<h2>Situation Summary</h2>
-<p>[3-4 sentences combining form data + intel. Situation, urgency, root cause. Written for a consultant going into the first call.]</p>
-
-<h2>Top Opportunities for GSD</h2>
-[4-6 cards: <div class="opp-card high|medium|low"><div class="opp-tag tag-high|tag-medium|tag-low">HIGH PRIORITY|MEDIUM|QUICK WIN</div><div class="opp-title">Title</div><div class="opp-desc">Concrete description tying pain + company context to a GSD service.</div></div>]
-
-<h2>Industry Benchmarks & Talking Points</h2>
-<div class="stat-grid">[5-6 cards: <div class="stat-card"><div class="stat-num">XX%</div><div class="stat-label">Label</div><div class="stat-note">How to use in the sales conversation.</div></div>]</div>
-
-<h2>Recommended GSD Services</h2>
-<ul>[6-8 services with one-line rationale each]</ul>
-
-<h2>Suggested Proposal Framing</h2>
-<p>[Tactical angle, ROI story, objections to pre-empt, how to use intel to show research.]</p>
-
-<h2>Suggested Discovery Questions</h2>
-<ul>[5-6 sharp questions for the first call — probe beyond the form]</ul>
-
-<h2>Risk & Qualification Notes</h2>
-<p>[Budget fit, complexity signals, prior consulting baggage, red flags. Be honest.]</p>`;
-
-    const clientPrompt = `You are a senior consultant at GSD Solutions, a US-based consulting and co-sourcing firm. Based on a prospect's diagnostic submission, produce a polished, professional CLIENT-FACING diagnostic report to deliver to the prospect. This will be sent directly to them — it should feel like a valuable, thoughtful deliverable, NOT a sales pitch.
-
-Tone: warm, expert, insightful. Position GSD as a trusted advisor. Use "we" to refer to GSD. Do NOT include any internal notes, company research methodology, competitor analysis, sales tactics, discovery questions, pricing strategy, or qualification flags.
-
-PROSPECT SUBMISSION:
-- Name: ${data.contact.firstName} ${data.contact.lastName}, ${data.contact.title} at ${data.contact.company}
-- Industry: ${data.contact.industry || 'Not specified'} | Employees: ${data.contact.companySize || 'Not specified'} | Revenue: ${data.contact.revenue || 'Not specified'} | Operations: ${data.contact.operations || 'Not specified'}
-- Pain points: ${data.painPoints.selected.join('; ') || 'None selected'}
-- Top stated issue: "${data.painPoints.topIssue || 'Not provided'}"
-- Severity scores (1–5): Finance=${scoreMap.finance}, Back-Office Ops=${scoreMap.operations}, HR=${scoreMap.hr}, IT=${scoreMap.it}, Supply Chain=${scoreMap.supplyChain}
-- Open to co-sourcing: ${data.functionalAreas.openToCosource.join(', ') || 'None specified'}
-- Urgency: ${data.urgencyGoals.urgency || 'Not specified'}
-- Desired outcomes: ${data.urgencyGoals.outcomes.join('; ') || 'None'}
-- Budget range indicated: ${data.urgencyGoals.budget || 'Not specified'}
-- FTEs for co-sourcing: ${data.urgencyGoals.ftesForCosource}
-- Submitted: ${new Date(data.submittedAt).toLocaleString()}
-
-GSD SOLUTIONS OFFERINGS (reference naturally — do not list robotically):
-Consulting: Assessments + 90-day roadmaps, Lean/Six Sigma optimization, PMO leadership, Shared Services design, Strategic Sourcing, Finance Transformation, Month-End Close Reduction, M&A Integration, Cost Accounting, RFP & Tool Selection.
-Co-Sourcing: Dedicated offshore specialists embedded in client workflows. ~30% cost savings vs domestic. No minimum headcount. Functions: Accounting, AP/AR/Billing, FP&A, Controllership, HR & Payroll, IT Admin, PMO & Analytics, Supply Chain. Proven transition: assess → document → shadow → cutover → hypercare.
-
-Produce using EXACTLY this HTML (no markdown, no backticks):
-
-<h2>Your Diagnostic Summary</h2>
-<p>[2-3 warm, personalized sentences acknowledging what ${data.contact.firstName} shared and summarizing their overall operational picture. Reference their industry and role. Make them feel heard.]</p>
-
-<h2>Key Areas of Focus</h2>
-[3-5 cards for their highest-severity / most-selected areas:
-<div class="opp-card medium">
-  <div class="opp-title">Area Title</div>
-  <div class="opp-desc">2-3 sentences: what challenges companies typically face here, what the impact is, and what good looks like. Validate their pain without being alarmist.</div>
-</div>]
-
-<h2>What the Data Is Telling Us</h2>
-<div class="stat-grid">[4-5 industry benchmark stat cards relevant to their pain points and industry — presented as context/insight for the prospect, not sales ammo:
-<div class="stat-card"><div class="stat-num">XX%</div><div class="stat-label">Label</div><div class="stat-note">One sentence of helpful context for the prospect.</div></div>]</div>
-
-<h2>Potential Opportunities We See</h2>
-<p>[1-2 sentences framing the section as observations, not a pitch.]</p>
-<ul>[5-7 opportunity bullets — specific, practical, framed as possibilities. e.g. "Standardizing your AP process could reduce error rates and shorten close cycle time significantly." No hard sells.]</ul>
-
-<h2>Suggested Next Steps</h2>
-<p>[Warm paragraph inviting them to a 30-minute call to walk through findings, answer questions, and explore fit. Emphasize no commitment, their time is respected, and GSD's goal is to add value whether or not they become a client. End with a natural CTA to reply to this email or visit www.gsdsol.com.]</p>
-
-<h2>About GSD Solutions</h2>
-<p>[2-3 sentences on GSD: who we are, what makes us different (high-touch engagement, customer-focused, value realization), and our "From Complexity to Clarity" positioning. Keep it brief and humble — the report should speak for itself.]</p>`;
-
-    try {
-      const [internalRes, clientRes] = await Promise.all([
-        fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 2500, messages: [{ role: 'user', content: internalPrompt }] })
-        }),
-        fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 2000, messages: [{ role: 'user', content: clientPrompt }] })
-        })
-      ]);
-
-      clearInterval(msgInterval);
-
-      const internalResult = await internalRes.json();
-      const clientResult = await clientRes.json();
-
-      const internalHtml = internalResult.content?.[0]?.text || '<p>Unable to generate internal report.</p>';
-      const clientHtml = clientResult.content?.[0]?.text || '<p>Unable to generate client report.</p>';
-
-      // Populate internal tab
-      const intelNote = `<div style="background:rgba(217,48,38,0.1);border:1px solid rgba(217,48,38,0.3);border-radius:6px;padding:10px 14px;margin-bottom:20px;font-size:12px;color:var(--muted);">
-        <strong style="color:var(--gsd-red);">🔒 INTERNAL USE ONLY</strong> &nbsp;·&nbsp; ${data.contact.company} (${domain}) &nbsp;·&nbsp; Generated ${new Date().toLocaleString()}
-      </div>`;
-      document.getElementById('report-internal').innerHTML = intelNote + internalHtml;
-
-      // Populate client tab
-      const clientNote = `<div style="background:rgba(46,123,196,0.1);border:1px solid rgba(46,123,196,0.3);border-radius:6px;padding:10px 14px;margin-bottom:20px;font-size:12px;color:var(--muted);">
-        <strong style="color:var(--gsd-blue);">📄 CLIENT REPORT</strong> &nbsp;·&nbsp; For delivery to ${data.contact.firstName} ${data.contact.lastName} at ${data.contact.company} &nbsp;·&nbsp; Generated ${new Date().toLocaleString()}
-      </div>`;
-      document.getElementById('report-client').innerHTML = clientNote + clientHtml;
-
-      // Show internal tab by default
-      document.getElementById('report-loading').style.display = 'none';
-      switchTab('internal');
-
-      // Send both to Power Automate
-      sendToPowerAutomate(data, internalHtml, clientHtml, companyIntel);
-
-    } catch (err) {
-      clearInterval(msgInterval);
-      document.getElementById('report-loading').style.display = 'none';
-      document.getElementById('report-internal').style.display = 'block';
-      document.getElementById('report-internal').innerHTML = `<p style="color:#ff6b6b;">Error generating reports: ${err.message}</p>`;
-    }
+    // Send raw data to Power Automate — AI generation happens there
+    sendToPowerAutomate(data);
   }
 
-  async function postToFlow(url, payload) {
-    // Use no-cors mode to avoid CORS preflight issues with Power Automate
-    try {
-      await fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      console.log('Payload sent to: ' + url.substring(0, 60) + '...');
-    } catch (err) {
-      console.error('Flow dispatch failed:', err.message);
-    }
-  }
+  async function sendToPowerAutomate(data) {
+    const payload = {
+      submittedAt: data.submittedAt,
+      contact: data.contact,
+      painPoints: data.painPoints,
+      functionalAreas: data.functionalAreas,
+      urgencyGoals: data.urgencyGoals,
+      finalDetails: data.finalDetails
+    };
 
-  async function sendToPowerAutomate(data, internalHtml, clientHtml, companyIntel) {
-    if (!POWER_AUTOMATE_URL || POWER_AUTOMATE_URL === 'YOUR_POWER_AUTOMATE_HTTP_TRIGGER_URL_HERE') {
-      console.warn('Power Automate URL not configured.');
-    } else {
-      await postToFlow(POWER_AUTOMATE_URL, {
-        submittedAt: data.submittedAt,
-        contact: data.contact,
-        painPoints: data.painPoints,
-        functionalAreas: data.functionalAreas,
-        urgencyGoals: data.urgencyGoals,
-        finalDetails: data.finalDetails,
-        companyIntel: companyIntel,
-        internalReportHtml: internalHtml,
-        clientReportHtml: clientHtml
-      });
-    }
-
-    // ── Send prospect confirmation email via separate flow ────────────────────
-    if (!POWER_AUTOMATE_CONFIRMATION_URL || POWER_AUTOMATE_CONFIRMATION_URL === 'YOUR_POWER_AUTOMATE_CONFIRMATION_URL_HERE') {
-      console.warn('Confirmation email URL not configured.');
-      return;
-    }
-    await postToFlow(POWER_AUTOMATE_CONFIRMATION_URL, {
+    // Fire both flows simultaneously
+    const confirmPayload = {
       toEmail: data.contact.email,
       firstName: data.contact.firstName,
       lastName: data.contact.lastName,
       company: data.contact.company,
       title: data.contact.title,
       submittedAt: data.submittedAt,
-      painPointsSummary: data.painPoints.selected.join(', ') || 'Not specified',
+      painPointsSummary: (data.painPoints.selected || []).join(', ') || 'Not specified',
       urgency: data.urgencyGoals.urgency || 'Not specified',
       preferredContact: data.finalDetails.preferredContact || 'Email'
-    });
+    };
+
+    try {
+      await fetch(WORKER_URL + '/internal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      console.log('Internal flow triggered.');
+    } catch(e) { console.error('Internal flow error:', e.message); }
+
+    try {
+      await fetch(WORKER_URL + '/confirm', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(confirmPayload)
+      });
+      console.log('Confirmation flow triggered.');
+    } catch(e) { console.error('Confirmation flow error:', e.message); }
   }
+
 
   // Init
   updateProgress(1);
